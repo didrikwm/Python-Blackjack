@@ -9,6 +9,9 @@ class Table:
         self._dealer = Dealer()
         self._player = player
         self._pot = 0
+        
+    def clearScreen(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
     
     def printTable(self, endgame=False):
         string = ""
@@ -28,7 +31,7 @@ class Table:
             playerString += card.getVisualCard() + " "
         string += "(" + str(self._player.totValue()) + ") " +  playerString
         string += ("\n|PLAYER|" + " Balance: " +  "$" + str(self._player.getPlayerBalance()))
-        os.system("cls")
+        self.clearScreen()
         print(string)
 
     def dealFirstCards(self):
@@ -74,7 +77,7 @@ class Table:
                 choice = input("> ")
             return choice
 
-        os.system("cls")
+        self.clearScreen()
 
         self._deck.shuffleDeck()
         self.dealFirstCards()
@@ -85,7 +88,7 @@ class Table:
 
         cont = True
         while cont:
-            os.system("cls")
+            self.clearScreen()
             self.printTable()
             time.sleep(1)
 
