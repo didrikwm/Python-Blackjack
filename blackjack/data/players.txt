@@ -1,3 +1,1 @@
 Dummy:100
-hei:60
-test:400
